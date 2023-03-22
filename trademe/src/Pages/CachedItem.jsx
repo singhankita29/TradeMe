@@ -19,9 +19,8 @@ const CachedItem = () => {
               mx={"5"}
               borderRadius={"10"}
             >
-              <Box mx={"5"} textAlign={"left"} py={"5"}>
-               <Image w={"100%"} h={"50vh"} src={item.image} alt={item.id} />
-               <Image w={"100%"} h={"30vh"} 
+            <Box mx={"5"} textAlign={"left"} py={"5"}>
+            <Image w={"100%"} h={"30vh"} 
             src={'https://media.istockphoto.com/id/1300036753/photo/falling-antibiotics-healthcare-background.jpg?s=612x612&w=0&k=20&c=oquxJiLqE33ePw2qML9UtKJgyYUqjkLFwxT84Pr-WPk='} 
             alt={item.id} />
             <br/>
