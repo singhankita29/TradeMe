@@ -167,9 +167,7 @@ const Product = () => {
       </SimpleGrid>
 
     
-      <Button>
-      <Pagination handleChange={handleChange}  total= {data.totalPages}  current={page} /> 
-      </Button>
+      
 
 
 
