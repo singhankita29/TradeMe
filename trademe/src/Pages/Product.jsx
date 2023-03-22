@@ -5,42 +5,38 @@ import React, { useEffect, useState } from 'react'
 import Pagination from '../Component/Pagination';
 
 const Product = () => {
-    const [query, setQuery] = useState("");
+    const [data, setData] = useState([]); 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     const [orderBy, setOrderBy] = useState([]);
-
     const [packetDigit, setPacketDigit] = useState([]);
-
     const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
   
-    const handleInputChange = (event) => {
-      setQuery(event.target.value);
-    };
-
     useEffect(() => {
-      if (query.length > 0) {
-        setLoading(true);
-        fetch(`https://saya.net.in/api/jam2-trade/full?name=${query}&page=${page}`)
-          .then((response) => response.json())
-          .then((data) => {
-            setProducts(data.data);
-            setTotalPages(data.total_pages);
-            setLoading(false);
-          })
-          .catch((error) => console.log(error));
-      } else {
-        setProducts([]);
-      }
-    }, [query, page]);
+      setLoading(true);
+      fetch(
+        `https://saya.net.in/api/jam2-trade/full?limit=12&page=${page}`
+      )
+        .then((items) => {
+          return items.json();
+        })
+        .then((items) => {
+          setData(items);
+          setLoading(false); 
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }, [page]);
   
-    const handlePageChange = (newPage) => {
-      setPage(newPage);
-    };
+    function handleChange(change){
+      setPage(change); 
+    }
   
+    console.log(data);  
+   
     useEffect(() => {
       async function fetchData() {
         try {
@@ -171,19 +167,10 @@ const Product = () => {
       </SimpleGrid>
 
     
+      <Button>
+      <Pagination handleChange={handleChange}  total= {data.totalPages}  current={page} /> 
+      </Button>
 
-
-      <Stack direction="row" justify="center">
-              {Array.from(Array(totalPages).keys()).map((pageNumber) => (
-                <Button
-                  key={pageNumber + 1}
-                  onClick={() => handlePageChange(pageNumber + 1)}
-                  variant={page === pageNumber + 1 ? "solid" : "outline"}
-                >
-                  {pageNumber + 1}
-                </Button>
-              ))}
-            </Stack>
 
 
     </Box>

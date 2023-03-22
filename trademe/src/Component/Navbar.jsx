@@ -23,6 +23,9 @@ const Navbar = ({ colorMode}) => {
       <Box color={"white"}>
       <Link to="/cached">CachedItem</Link>
       </Box> 
+      <Box color={"white"}>
+      <Link to="/search">Search</Link>
+      </Box> 
     </Flex>
    
     

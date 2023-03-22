@@ -1,0 +1,35 @@
+.items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 95%;
+    margin: auto;
+  }
+  
+  @media screen and (max-width: 769px) {
+    .items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 469px) {
+    .items {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+    }
+  }
+  h1 {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .pagination{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 3rem;
+  }
