@@ -58,7 +58,7 @@ function Search() {
                 borderRadius="md"
               >
                 <Text fontWeight="bold">{result.name}</Text>
-                <Text>{result.description}</Text>
+               
               </Box>
             ))}
           </Stack>
